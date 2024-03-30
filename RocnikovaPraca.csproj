@@ -1,0 +1,70 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AssimpNet" Version="4.1.0" />
+      <PackageReference Include="OpenTK" Version="4.8.2" />
+      <PackageReference Include="StbImageSharp" Version="2.27.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="res\Shaders\DefaultShader.frag" />
+      <Content Include="res\Models\Minecart.fbx">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="res\Models\Minecart.mtl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="res\Models\Minecart.obj">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="res\Shaders\DefaultShader.frag">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Shaders\DefaultShader.vert" />
+      <Content Include="res\Shaders\DefaultShader.vert">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\bunny.obj" />
+      <Content Include="res\Models\bunny.obj">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\cube.obj" />
+      <Content Include="res\Models\cube.obj">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\cube.mtl" />
+      <Content Include="res\Models\cube.mtl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\cube2.mtl" />
+      <Content Include="res\Models\cube2.mtl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\cube2.obj" />
+      <Content Include="res\Models\cube2.obj">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Shaders\LightCube.frag" />
+      <None Remove="res\Models\Minecart.obj" />
+      <None Remove="res\Models\Minecart.mtl" />
+      <None Remove="res\Models\Minecart.fbx" />
+      <None Remove="res\Models\vanBodyTexture.png" />
+      <None Remove="res\Models\van6.fbx" />
+      <None Remove="res\Models\ImphenziaPalette01-256-Gradient.png" />
+      <Content Include="res\Models\ImphenziaPalette01-256-Gradient.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\Low Poly Fruit v1.fbx" />
+      <Content Include="res\Models\Low Poly Fruit v1.fbx">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>
