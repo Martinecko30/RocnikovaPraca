@@ -65,6 +65,18 @@
       <Content Include="res\Models\Low Poly Fruit v1.fbx">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="res\Models\plane.mtl" />
+      <Content Include="res\Models\plane.mtl">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\plane.obj" />
+      <Content Include="res\Models\plane.obj">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Models\wood.png" />
+      <Content Include="res\Models\wood.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

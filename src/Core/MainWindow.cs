@@ -38,34 +38,39 @@ public class MainWindow : GameWindow
             "res\\Shaders\\DefaultShader.vert",
             "res\\Shaders\\DefaultShader.frag");
         
-        gameObjects.Add(new GameObject("res\\Models\\Minecart.obj"));
+        gameObjects.Add(new GameObject("res\\Models\\minecart.obj"));
         
         /*
         gameObjects.Add(new GameObject(
             "res\\Models\\cube2.obj"
             ));*/
+        /*
         gameObjects.Add(new GameObject(
             "res\\Models\\cube2.obj",
             new Vector3(7, 0, 0),
             new Vector3(0.2f, 0.2f, 0.2f)
         ));
+        */
         
         
         lights.Add(new Light(
             new Vector3(0, 10, 0), 
-            new Vector3(0.5f, 0, 0.5f)) // Color {0.0 - 1.0}
+            new Vector3(1.0f, 1.0f, 1.0f)) // Color {0.0 - 1.0}
         );
         
+        /*
         lights.Add(new Light(
                 new Vector3(0, -10, 0), 
-                new Vector3(0f, 0.5f, 0.5f)) // Color {0.0 - 1.0}
+                new Vector3(1.0f, 1.0f,1.0f)) // Color {0.0 - 1.0}
         );
+        */
 
         camera = new Camera(Vector3.UnitZ * 3, Size.X / (float)Size.Y);
         CursorState = CursorState.Grabbed;
         
         //GL.Enable(EnableCap.DepthTest);
         //GL.DepthFunc(DepthFunction.Always);
+        GL.Enable(EnableCap.FramebufferSrgb);
 
         timer = new Stopwatch();
         timer.Start();
@@ -82,8 +87,10 @@ public class MainWindow : GameWindow
         
         shader.SetVector3("viewPos", camera.Position);
         
+        
         for(int i = 0; i < lights.Count; i++)
         {
+            Console.WriteLine(lights[i].Position);
             shader.SetVector3($"lights[{i}].position", lights[i].Position);
             shader.SetVector3($"lights[{i}].color", lights[i].Color);
         }
@@ -97,10 +104,32 @@ public class MainWindow : GameWindow
             viewModel *= Matrix4.CreateTranslation(gameObject.Position);
             viewModel *= Matrix4.CreateScale(gameObject.Scale);
             shader.SetMatrix4("model", viewModel);
+            shader.SetMatrix4("modelInverseTransposed", TransposeAndInverseMatrix(viewModel));
             gameObject.Draw(shader);
         }
         
         base.SwapBuffers();
+    }
+
+    private Matrix4 TransposeAndInverseMatrix(Matrix4 input)
+    {
+        /*
+        Vector4 i0 = input.Row0;
+        Vector4 i1 = input.Row0;
+        Vector4 i2 = input.Row0;
+        Vector4 i3 = input.Row0;
+
+        return new Matrix4(
+            i0.X, i1.X, i2.X, i3.X,
+            i0.Y, i1.Y, i2.Y, i3.Y,
+            i0.Z, i1.Z, i2.Z, i3.Z,
+            i0.W, i1.W, i2.W, i3.W
+        );
+        */
+
+        input.Inverted().Transpose();
+
+        return input;
     }
     
     

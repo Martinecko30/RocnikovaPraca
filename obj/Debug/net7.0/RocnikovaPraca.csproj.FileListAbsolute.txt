@@ -47,3 +47,7 @@ F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\Minecart.fbx
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\Minecart.mtl
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\Minecart.obj
 F:\Csharp apps\RocnikovaPraca\obj\Debug\net7.0\Rocnikov.636E9BC8.Up2Date
+F:\Csharp apps\RocnikovaPraca\obj\Debug\net7.0\RocnikovaPraca.sourcelink.json
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\plane.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\plane.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\wood.png

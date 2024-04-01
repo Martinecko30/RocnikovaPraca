@@ -58,7 +58,7 @@ public class Model
 
     private Mesh ProcessMesh(Assimp.Mesh mesh, Scene scene)
     {
-        List<Vertex> vertices = new List<Vertex>();
+        Vertex[] vertices = new Vertex[mesh.VertexCount];
         List<uint> indices = new List<uint>();
         List<Texture> textures = new List<Texture>();
 
@@ -69,7 +69,7 @@ public class Model
             Vertex vertex = new Vertex();
             Vector3D position = mesh.Vertices[i];
             vertex.Position = new Vector3(position.X, position.Y, position.Z);
-
+            
             if (mesh.HasNormals)
             {
                 Vector3D normal = mesh.Normals[i];
@@ -81,8 +81,8 @@ public class Model
                 Vector3D texCoord = mesh.TextureCoordinateChannels[0][i];
                 vertex.TexCoords = new Vector2(texCoord.X, texCoord.Y);
             }
-            
-            vertices.Add(vertex);
+
+            vertices[i] = vertex;
         }
         
         // Process indices

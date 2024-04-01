@@ -78,6 +78,11 @@ public class Shader : IDisposable
         GL.UseProgram(Handle);
     }
     
+    /*
+     * It's unsafe to use this function to get attributes
+     * Assign attributes location in VBO
+     * IDK why but someone told me this
+     */
     [Obsolete("It's unsafe to use this function to get attributes\nAssign attributes location in VBO")]
     public int GetAttribLocation(string attribName)
     {
@@ -89,30 +94,50 @@ public class Shader : IDisposable
         return GL.GetUniformLocation(Handle, uniformName);
     }
     
+    
     public void SetInt(string name, int data)
     {
         GL.UseProgram(Handle);
-        GL.Uniform1(uniformLocations[name], data);
+        GL.Uniform1(UniformLocationsLookUp(name), data);
     }
-
+    
         
     public void SetFloat(string name, float data)
     {
         GL.UseProgram(Handle);
-        GL.Uniform1(uniformLocations[name], data);
+        GL.Uniform1(UniformLocationsLookUp(name), data);
     }
 
         
     public void SetMatrix4(string name, Matrix4 data)
     {
         GL.UseProgram(Handle);
-        GL.UniformMatrix4(uniformLocations[name], true, ref data);
+        GL.UniformMatrix4(UniformLocationsLookUp(name), true, ref data);
     }
 
     public void SetVector3(string name, Vector3 data)
     {
         GL.UseProgram(Handle);
-        GL.Uniform3(uniformLocations[name], data);
+        GL.Uniform3(UniformLocationsLookUp(name), data);
+    }
+
+    public void SetMatrix3(string name, Matrix3 data)
+    {
+        GL.UseProgram(Handle);
+        GL.UniformMatrix3(UniformLocationsLookUp(name), true, ref data);
+    }
+
+    private int UniformLocationsLookUp(string name)
+    {
+        if (uniformLocations.TryGetValue(name, out int value))
+        {
+            return value;
+        }
+        else
+        {
+            value = GetUniformLocation(name);
+            return (uniformLocations[name] = value);
+        }
     }
     
     

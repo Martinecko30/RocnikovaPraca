@@ -7,13 +7,14 @@ namespace RocnikovaPraca.Objects;
 
 public class Mesh
 {
-    public List<Vertex> Vertices { private set; get; }
+    //public List<Vertex> Vertices { private set; get; }
+    public Vertex[] Vertices { private set; get; }
     public List<uint> Indices { private set; get; }
     public List<Texture> Textures { private set; get; }
 
     private int VAO, VBO, EBO;
     
-    public Mesh(List<Vertex> vertices, List<uint> indices, List<Texture> textures)
+    public Mesh(Vertex[] vertices, List<uint> indices, List<Texture> textures)
     {
         this.Vertices = vertices;
         this.Indices = indices;
@@ -33,7 +34,7 @@ public class Mesh
         
         GL.BufferData(
             BufferTarget.ArrayBuffer,
-            Vertices.Count * Unsafe.SizeOf<Vertex>(),
+            Vertices.Length * Unsafe.SizeOf<Vertex>(),
             Vertices.ToArray(),
             BufferUsageHint.StaticDraw
             );
@@ -96,7 +97,7 @@ public class Mesh
                 number = (specularNr++).ToString();
             
             //"material." + 
-            shader.SetInt((name + number), (int)i);
+            shader.SetInt(name + number, (int)i);
             GL.BindTexture(TextureTarget.Texture2D, Textures[(int) i].textureID);
         }
         
