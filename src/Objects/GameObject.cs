@@ -11,6 +11,8 @@ public class GameObject
     public Quaternion Rotation = Quaternion.Identity;
     public Vector3 Scale = Vector3.One;
 
+    public string name = "default";
+
     public GameObject(Model model)
     {
         this.model = model;

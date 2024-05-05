@@ -22,7 +22,7 @@ public class Texture
         GL.BindTexture(TextureTarget.Texture2D, textureID);
         
         StbImage.stbi_set_flip_vertically_on_load(1);
-
+        
         using (Stream stream = File.OpenRead(filePath))
         {
             ImageResult image = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
@@ -30,7 +30,7 @@ public class Texture
             GL.TexImage2D(
                 TextureTarget.Texture2D, 
                 0, 
-                PixelInternalFormat.Rgba, 
+                PixelInternalFormat.SrgbAlpha, 
                 image.Width, 
                 image.Height, 
                 0, 

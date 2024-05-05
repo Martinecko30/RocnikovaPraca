@@ -51,3 +51,7 @@ F:\Csharp apps\RocnikovaPraca\obj\Debug\net7.0\RocnikovaPraca.sourcelink.json
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\plane.mtl
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\plane.obj
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Models\wood.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Shaders\DepthShader.frag
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Shaders\DepthShader.vert
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Shaders\ShadowMappingDepth.vert
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net7.0\res\Shaders\ShadowMappingDepth.frag

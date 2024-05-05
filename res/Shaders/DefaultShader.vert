@@ -7,11 +7,13 @@ out VS_OUT {
     vec3 FragPos;
     vec3 Normal;
     vec2 TexCoords;
+    vec4 FragPosLightSpace;
 } vs_out;
 
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
+uniform mat4 lightSpaceMatrix;
 
 uniform mat4 modelInverseTransposed;
 
@@ -20,6 +22,7 @@ void main()
     vs_out.FragPos = vec3(model * vec4(aPos, 1.0));
     vs_out.Normal = mat3(modelInverseTransposed) * aNormal;
     vs_out.TexCoords = aTexCoords;
-    
-    gl_Position = vec4(aPos, 1.0) * model * view * projection;
+    vs_out.FragPosLightSpace = lightSpaceMatrix * vec4(vs_out.FragPos, 1.0);
+
+    gl_Position = vec4(vs_out.FragPos, 1.0) * model * view * projection;
 }

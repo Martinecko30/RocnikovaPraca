@@ -7,6 +7,7 @@ in VS_OUT {
     vec3 FragPos;
     vec3 Normal;
     vec2 TexCoords;
+    vec4 FragPosLightSpace;
 } fs_in;
 
 struct Light {
@@ -17,88 +18,53 @@ struct Light {
 uniform sampler2D diffuseTexture;
 uniform sampler2D specularTexture;
 uniform Light lights[MAX_LIGHTS];
-
 uniform vec3 viewPos;
+uniform bool gamma;
+
+vec3 BlinnPhong(vec3 normal, vec3 fragPos, vec3 lightPos, vec3 lightColor) {
+    // diffuse
+    vec3 lightDir = normalize(lightPos - fragPos);
+    float diff = max(dot(lightDir, normal), 0.0);
+    vec3 diffuse = diff * lightColor;
+
+    // specular
+    vec3 viewDir = normalize(viewPos - fragPos);
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = 0.0;
+    vec3 halfwayDir = normalize(lightDir + viewDir);
+
+    spec = pow(max(dot(normal, halfwayDir), 0.0), 64.0);
+    vec3 specular = spec * lightColor;
+
+    // simple attenuation
+    float max_distance = 1.5;
+    float distance = length(lightPos - fragPos);
+    float attenuation = 1.0 / (gamma ? distance * distance : distance);
+
+    diffuse *= attenuation;
+    specular *= attenuation;
+
+    return diffuse + specular;
+}
+
+float ShadowCalculation(vec4 fragPosLightSpace) {
+    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+    
+    return 1.0;
+}
 
 void main()
 {
     vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
-    // ambient
-    vec3 ambient = 0.05 * color;
-    // diffuse
-    vec3 lightDir = normalize(lights[0].position - fs_in.FragPos);
-    vec3 normal = normalize(fs_in.Normal);
-    float diff = max(dot(lightDir, normal), 0.0);
-    vec3 diffuse = diff * color;
-    // specular
-    vec3 viewDir = normalize(viewPos - fs_in.FragPos);
-    vec3 reflectDir = reflect(-lightDir, normal);
-    float spec = 0.0;
-
-    vec3 halfwayDir = normalize(lightDir + viewDir);
-    spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
-
-    vec3 specular = vec3(0.3) * spec; // assuming bright white light color
-    FragColor = vec4(ambient + diffuse + specular, 1.0);
-    
-    
-    /*
-    vec3 viewDir = normalize(viewPos - fs_in.FragPos);
-    vec3 normal = normalize(fs_in.Normal);
-    
-    vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
-    
-    // ambient
-    vec3 ambient = 0.05 * color;
-    
-    vec3 result = vec3(0.0);
-
-    for(int i = 0; i < MAX_LIGHTS; i++) {
-        // diffuse
-        vec3 lightDir = normalize(lights[i].position - fs_in.FragPos);
-
-        float diff = max(dot(lightDir, normal), 0.0);
-        vec3 diffuse = diff * color;
-
-        // specular
-        vec3 reflectDir = reflect(-lightDir, normal);
-        vec3 halfwayDir = normalize(lightDir + viewDir);
-        
-        float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
-
-        vec3 specular = lights[0].color * spec * vec3(texture(specularTexture, fs_in.TexCoords));
-        
-        result += (ambient + diffuse) + specular;
+    vec3 lighting = vec3(0.0);
+    for(int i = 0; i < 4; ++i) {
+        lighting += BlinnPhong(normalize(fs_in.Normal), fs_in.FragPos, lights[i].position, lights[i].color);
     }
-
-    FragColor = vec4(result, 1.0);
+    color *= lighting;
+    if(gamma)
+        color = pow(color, vec3(1.0/2.2));
     
-    /*
-    vec3 result = vec3(0.0);
-    vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(viewPos - FragPos);
-
-    for(int i = 0; i < MAX_LIGHTS; i++) {
-        vec3 lightDir = normalize(lights[i].position - FragPos);
-        float diff = max(dot(norm, lightDir), 0.0);
-
-        vec3 halfwayDir = normalize(lightDir + viewDir);
-        float spec = pow(max(dot(norm, halfwayDir), 0.0), 64.0);
-
-        vec3 diffuse = diff * vec3(texture(diffuseTexture, TexCoords));
-        vec3 specular = spec * vec3(texture(specularTexture, TexCoords));
-
-        if (length(diffuse) < 0.00001) { // Almost zero
-            diffuse = vec3(0.5f); // Set to half
-        }
-        if (length(specular) < 0.00001) { // Almost zero
-            specular = vec3(0.5f); // Set to half
-        }
-
-        result += (diffuse + specular) * lights[i].color;
-    }
-
-    //FragColor = vec4(result, 1.0);
-    FragColor = texture(diffuseTexture, TexCoords);
-    */
+    float shadow = ShadowCalculation(fs_in.FragPosLightSpace);
+    
+    FragColor = vec4(color, 1.0);
 }

@@ -77,6 +77,22 @@
       <Content Include="res\Models\wood.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="res\Shaders\DepthShader.frag" />
+      <Content Include="res\Shaders\DepthShader.frag">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Shaders\DepthShader.vert" />
+      <Content Include="res\Shaders\DepthShader.vert">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Shaders\ShadowMappingDepth.vert" />
+      <Content Include="res\Shaders\ShadowMappingDepth.vert">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="res\Shaders\ShadowMappingDepth.frag" />
+      <Content Include="res\Shaders\ShadowMappingDepth.frag">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

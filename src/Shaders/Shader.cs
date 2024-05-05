@@ -127,6 +127,13 @@ public class Shader : IDisposable
         GL.UniformMatrix3(UniformLocationsLookUp(name), true, ref data);
     }
 
+    public void SetBool(string name, bool data)
+    {
+        SetInt(name, data ? 1 : 0);
+    }
+    
+    
+
     private int UniformLocationsLookUp(string name)
     {
         if (uniformLocations.TryGetValue(name, out int value))

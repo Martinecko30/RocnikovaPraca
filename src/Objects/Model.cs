@@ -134,6 +134,7 @@ public class Model
         List<Texture> textures = new List<Texture>();
         
         //Console.WriteLine(mat.GetMaterialTextureCount(type) + " " + type + " " + mat.Name + " " + directory);
+        
 
         if (type == TextureType.Diffuse && mat.GetMaterialTextureCount(type) <= 0 && mat.HasColorDiffuse)
         {
@@ -153,13 +154,13 @@ public class Model
         
         for (int i = 0; i < mat.GetMaterialTextureCount(type); i++)
         {
-            AiString str = new AiString();
             mat.GetMaterialTexture(type, i, out TextureSlot textureSlot);
+            string str = textureSlot.FilePath;
             
             bool skip = false;
             foreach (var texture in loadedTextures)
             {
-                if (texture.path == str.ToString())
+                if (texture.path.Equals(str))
                 {
                     textures.Add(texture);
                     skip = true;
@@ -169,7 +170,7 @@ public class Model
 
             if (!skip)
             {
-                Texture texture = new Texture(directory, typeName);
+                Texture texture = new Texture(Path.Combine(directory, textureSlot.FilePath), typeName);
                 textures.Add(texture);
                 loadedTextures.Add(texture);
             }

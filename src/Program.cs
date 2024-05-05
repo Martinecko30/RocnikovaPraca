@@ -1,5 +1,6 @@
 ﻿using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using RocnikovaPraca.Core;
 
 namespace RocnikovaPraca;
@@ -13,6 +14,7 @@ public class Program
             Size = new Vector2i(800, 600),
             Title = "Rocnikova Praca - Martin Valent", // Názov je ľubovoľný
         };
+        
         
             
         using var window = new MainWindow(GameWindowSettings.Default, nativeWindowSettings);
