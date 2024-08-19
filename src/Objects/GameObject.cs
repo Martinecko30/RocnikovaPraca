@@ -1,11 +1,15 @@
+#region
+
+using EngineBase.Shaders;
 using OpenTK.Mathematics;
-using RocnikovaPraca.Shaders;
+
+#endregion
 
 namespace RocnikovaPraca.Objects;
 
 public class GameObject
 {
-    private Model model;
+    private readonly Model model;
 
     public Vector3 Position = Vector3.Zero;
     public Quaternion Rotation = Quaternion.Identity;
@@ -20,20 +24,20 @@ public class GameObject
 
     public GameObject(string modelFilePath, Vector3 position)
     {
-        this.model = new Model(modelFilePath);
-        this.Position = position;
+        model = new Model(modelFilePath);
+        Position = position;
     }
     
     public GameObject(string modelFilePath, Vector3 position, Vector3 scale)
     {
-        this.model = new Model(modelFilePath);
-        this.Position = position;
-        this.Scale = scale;
+        model = new Model(modelFilePath);
+        Position = position;
+        Scale = scale;
     }
     
     public GameObject(string modelFilePath)
     {
-        this.model = new Model(modelFilePath);
+        model = new Model(modelFilePath);
     }
     
     public void Draw(Shader shader)

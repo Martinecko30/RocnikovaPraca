@@ -1,12 +1,17 @@
+#region
+
 using System.Diagnostics;
+using EngineBase.Shaders;
+using OpenTK.Graphics.OpenGL;
+using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using EngineBase.Lightning;
 using RocnikovaPraca.Objects;
 using RocnikovaPraca.Shaders;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Mathematics;
-using RocnikovaPraca.Lightning;
+
+#endregion
 
 namespace RocnikovaPraca.Core;
 
@@ -28,9 +33,9 @@ public class MainWindow : GameWindow
 
     private Camera camera;
 
-    private List<GameObject> gameObjects = new List<GameObject>();
+    private readonly List<GameObject> gameObjects = new List<GameObject>();
     private Shader shader; // TODO: shader manager
-    private List<Light> lights = new();
+    private readonly List<Light> lights = new();
 
     private Stopwatch timer;
     
@@ -40,7 +45,9 @@ public class MainWindow : GameWindow
     private int depthMap;
     private Shader depthShader; // TODO: Fix?
     private Shader debugDepthQuad;
-
+    private Matrix4 lightSpaceMatrix;
+    
+    
     protected override void OnLoad()
     {
         new ShaderManager(new Shader(
@@ -92,16 +99,16 @@ public class MainWindow : GameWindow
         // Lights
         
         lights.Add(new Light(
-            new Vector3(-2f, 4f, -1f),
-            new Vector3(1.0f, 1.0f, 1.0f), // Color {0.0 - 1.0}
-            new Vector3(1f, -1f, 0f))
-        );
+            new Vector3(-2f, 4f, 1f), // Position
+            new Vector3(1.0f, 1.0f, 1.0f) // Color {0.0 - 1.0}
+        ));
         
+        /*
         lights.Add(new Light(
                 new Vector3(5, 2.0f, 0), 
                 new Vector3(1.0f, 1.0f,1.0f)) // Color {0.0 - 1.0}
         );
-        
+        */
 
         CreateShadowMap();
 
@@ -116,6 +123,7 @@ public class MainWindow : GameWindow
         timer.Start();
         
         shader.SetBool("gamma", true);
+        shader.SetInt("depthMap", 2);
     }
     
     
@@ -132,13 +140,15 @@ public class MainWindow : GameWindow
         GL.Viewport(0, 0, Size.X, Size.Y);
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         
+        /*
         // TODO: Rewrite
         debugDepthQuad.Use();
         debugDepthQuad.SetFloat("near_plane", 1.0f);
-        debugDepthQuad.SetFloat("far_plane", 7.5f);
+        debugDepthQuad.SetFloat("far_plane", 7.5f;
         GL.ActiveTexture(TextureUnit.Texture0);
         GL.BindTexture(TextureTarget.Texture2D, depthMap);
         RenderQuad();
+        */
         
         
         
@@ -156,8 +166,9 @@ public class MainWindow : GameWindow
         
         shader.SetMatrix4("view", camera.GetViewMatrix());
         shader.SetMatrix4("projection", camera.GetProjectionMatrix());
+        shader.SetMatrix4("lightSpaceMatrix", lightSpaceMatrix);
         
-        //RenderScene(shader);
+        RenderScene(shader);
         
         base.SwapBuffers();
     }
@@ -210,7 +221,7 @@ public class MainWindow : GameWindow
         float nearPlane = 1.0f, farPlane = 7.5f;
         Matrix4 lightProjection = Matrix4.CreateOrthographic(20f, 20f, nearPlane, farPlane);
         Matrix4 lightView = Matrix4.LookAt(lights[0].Position, Vector3.Zero, Vector3.UnitY);
-        Matrix4 lightSpaceMatrix = lightView * lightProjection;
+        lightSpaceMatrix = lightView * lightProjection;
         
         depthShader.Use();
         depthShader.SetMatrix4("lightSpaceMatrix", lightSpaceMatrix);
@@ -220,7 +231,7 @@ public class MainWindow : GameWindow
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, depthMapFBO);
         
         GL.Clear(ClearBufferMask.DepthBufferBit);
-        GL.ActiveTexture(TextureUnit.Texture0);
+        GL.ActiveTexture(TextureUnit.Texture2);
         GL.BindTexture(TextureTarget.Texture2D, depthMap);
         RenderScene(depthShader);
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
@@ -249,7 +260,7 @@ public class MainWindow : GameWindow
     
     
     // TODO: Temporary render Quad
-    private int quadVAO = 0;
+    private int quadVAO;
     private int quadVBO;
 
     private void RenderQuad()
@@ -355,6 +366,6 @@ public class MainWindow : GameWindow
 
         GL.Viewport(0, 0, Size.X, Size.Y);
         // We need to update the aspect ratio once the window has been resized.
-        camera.AspectRatio = (float)Size.X / (float)Size.Y;
+        camera.AspectRatio = Size.X / (float)Size.Y;
     }
 }

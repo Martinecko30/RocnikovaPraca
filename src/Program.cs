@@ -1,7 +1,10 @@
-﻿using OpenTK.Mathematics;
+﻿#region
+
+using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
 using RocnikovaPraca.Core;
+
+#endregion
 
 namespace RocnikovaPraca;
 
@@ -9,7 +12,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var nativeWindowSettings = new NativeWindowSettings()
+        var nativeWindowSettings = new NativeWindowSettings
         {
             Size = new Vector2i(800, 600),
             Title = "Rocnikova Praca - Martin Valent", // Názov je ľubovoľný

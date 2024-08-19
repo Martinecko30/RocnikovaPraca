@@ -1,8 +1,14 @@
+#region
+
+using EngineBase.Shaders;
+
+#endregion
+
 namespace RocnikovaPraca.Shaders;
 
 public class ShaderManager
 {
-    private Dictionary<string, Shader> shaders;
+    private readonly Dictionary<string, Shader> shaders;
 
     public ShaderManager(Shader defaultShader)
     {

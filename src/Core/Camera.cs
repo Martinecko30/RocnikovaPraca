@@ -1,4 +1,8 @@
+#region
+
 using OpenTK.Mathematics;
+
+#endregion
 
 namespace RocnikovaPraca.Core;
 
@@ -6,10 +10,6 @@ public class Camera
     {
         // Those vectors are directions pointing outwards from the camera to define how it rotated.
         private Vector3 _front = -Vector3.UnitZ;
-
-        private Vector3 _up = Vector3.UnitY;
-
-        private Vector3 _right = Vector3.UnitX;
 
         // Rotation around the X axis (radians)
         private float _pitch;
@@ -34,9 +34,9 @@ public class Camera
 
         public Vector3 Front => _front;
 
-        public Vector3 Up => _up;
+        public Vector3 Up { get; private set; } = Vector3.UnitY;
 
-        public Vector3 Right => _right;
+        public Vector3 Right { get; private set; } = Vector3.UnitX;
 
         // We convert from degrees to radians as soon as the property is set to improve performance.
         public float Pitch
@@ -81,7 +81,7 @@ public class Camera
         // Get the view matrix using the amazing LookAt function described more in depth on the web tutorials
         public Matrix4 GetViewMatrix()
         {
-            return Matrix4.LookAt(Position, Position + _front, _up);
+            return Matrix4.LookAt(Position, Position + _front, Up);
         }
 
         // Get the projection matrix using the same method we have used up until this point
@@ -104,7 +104,7 @@ public class Camera
             // Calculate both the right and the up vector using cross product.
             // Note that we are calculating the right from the global up; this behaviour might
             // not be what you need for all cameras so keep this in mind if you do not want a FPS camera.
-            _right = Vector3.Normalize(Vector3.Cross(_front, Vector3.UnitY));
-            _up = Vector3.Normalize(Vector3.Cross(_right, _front));
+            Right = Vector3.Normalize(Vector3.Cross(_front, Vector3.UnitY));
+            Up = Vector3.Normalize(Vector3.Cross(Right, _front));
         }
     }

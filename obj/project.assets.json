@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
+    "net8.0": {
       "AssimpNet/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -18,7 +18,7 @@
           }
         },
         "build": {
-          "build/AssimpNet.targets": {}
+          "build/_._": {}
         },
         "runtimeTargets": {
           "runtimes/linux-x64/native/libassimp.so": {
@@ -36,6 +36,24 @@
           "runtimes/win-x86/native/assimp.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "EngineBase/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AssimpNet": "4.1.0",
+          "OpenTK": "4.8.2",
+          "StbImageSharp": "2.27.14"
+        },
+        "compile": {
+          "lib/net8.0/EngineBase.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/EngineBase.dll": {
+            "related": ".runtimeconfig.json"
           }
         }
       },
@@ -481,7 +499,7 @@
           }
         }
       },
-      "StbImageSharp/2.27.13": {
+      "StbImageSharp/2.27.14": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/StbImageSharp.dll": {}
@@ -1562,6 +1580,18 @@
         "runtimes/win-x86/native/assimp.dll"
       ]
     },
+    "EngineBase/1.0.0": {
+      "sha512": "prB7GpPwPR9IllYDGTIN5rRrvQNDwC9IgjDBhKjY5K8pUTTtfqXXpYtFQlbkIH5wuVaY0lc5C68z2X+y/iIYHQ==",
+      "type": "package",
+      "path": "enginebase/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "enginebase.1.0.0.nupkg.sha512",
+        "enginebase.nuspec",
+        "lib/net8.0/EngineBase.dll",
+        "lib/net8.0/EngineBase.runtimeconfig.json"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -2033,16 +2063,16 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
-    "StbImageSharp/2.27.13": {
-      "sha512": "tHnP2RHgFzWbOS96UqvRO/LYU1WmpMT1bKiig45we+rpaXacBr11Fq2IBF+MqlgyLyNXxRz18E66qr4R9YlSbg==",
+    "StbImageSharp/2.27.14": {
+      "sha512": "4C38oL8igoocaywMr4+WDYoXwnVma3gm26heCAVgzWqO91MMPuhgqTlTT7vVpGDMo4/c0h2/zqQuAS6QxJKgmA==",
       "type": "package",
-      "path": "stbimagesharp/2.27.13",
+      "path": "stbimagesharp/2.27.14",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net471/StbImageSharp.dll",
         "lib/netstandard2.0/StbImageSharp.dll",
-        "stbimagesharp.2.27.13.nupkg.sha512",
+        "stbimagesharp.2.27.14.nupkg.sha512",
         "stbimagesharp.nuspec"
       ]
     },
@@ -5044,10 +5074,8 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "AssimpNet >= 4.1.0",
-      "OpenTK >= 4.8.2",
-      "StbImageSharp >= 2.27.13"
+    "net8.0": [
+      "EngineBase >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5067,15 +5095,16 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\LocalNuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {}
         }
       },
@@ -5083,23 +5112,20 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
-          "AssimpNet": {
+          "EngineBase": {
             "target": "Package",
-            "version": "[4.1.0, )"
-          },
-          "OpenTK": {
-            "target": "Package",
-            "version": "[4.8.2, )"
-          },
-          "StbImageSharp": {
-            "target": "Package",
-            "version": "[2.27.13, )"
+            "version": "[1.0.0, )"
           }
         },
         "imports": [
@@ -5113,30 +5139,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.17, 7.0.17]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.17, 7.0.17]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

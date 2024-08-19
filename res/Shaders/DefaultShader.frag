@@ -17,6 +17,9 @@ struct Light {
 
 uniform sampler2D diffuseTexture;
 uniform sampler2D specularTexture;
+
+uniform sampler2D shadowMap;
+
 uniform Light lights[MAX_LIGHTS];
 uniform vec3 viewPos;
 uniform bool gamma;
@@ -49,8 +52,13 @@ vec3 BlinnPhong(vec3 normal, vec3 fragPos, vec3 lightPos, vec3 lightColor) {
 
 float ShadowCalculation(vec4 fragPosLightSpace) {
     vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
-    
-    return 1.0;
+    projCoords = projCoords * 0.5 + 0.5;
+
+    float closestDepth = texture(shadowMap, projCoords.xy).r;
+    float currentDepth = projCoords.z;
+    float shadow = currentDepth > closestDepth  ? 1.0 : 0.0;
+
+    return shadow;
 }
 
 void main()
@@ -63,8 +71,6 @@ void main()
     color *= lighting;
     if(gamma)
         color = pow(color, vec3(1.0/2.2));
-    
-    float shadow = ShadowCalculation(fs_in.FragPosLightSpace);
     
     FragColor = vec4(color, 1.0);
 }

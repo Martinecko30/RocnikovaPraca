@@ -1,17 +1,23 @@
+#region
+
 using System.Numerics;
 using Assimp;
-using Assimp.Unmanaged;
-using RocnikovaPraca.Shaders;
+using EngineBase.Objects;
+using EngineBase.Shaders;
+using EngineBase.Textures;
+using Mesh = EngineBase.Objects.Mesh;
+
+#endregion
 
 namespace RocnikovaPraca.Objects;
 
 public class Model
 {
-    private List<Mesh> meshes = new List<Mesh>();
+    private readonly List<Mesh> meshes = new List<Mesh>();
     private string directory;
 
     private Vector3 size = new Vector3(1, 1, 1);
-    private List<Texture> loadedTextures = new();
+    private readonly List<Texture> loadedTextures = new();
     
     public Model(string path)
     {
