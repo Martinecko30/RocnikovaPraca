@@ -39,7 +39,7 @@
           }
         }
       },
-      "EngineBase/1.0.0": {
+      "EngineBase/1.0.1": {
         "type": "package",
         "dependencies": {
           "AssimpNet": "4.1.0",
@@ -1580,13 +1580,13 @@
         "runtimes/win-x86/native/assimp.dll"
       ]
     },
-    "EngineBase/1.0.0": {
-      "sha512": "prB7GpPwPR9IllYDGTIN5rRrvQNDwC9IgjDBhKjY5K8pUTTtfqXXpYtFQlbkIH5wuVaY0lc5C68z2X+y/iIYHQ==",
+    "EngineBase/1.0.1": {
+      "sha512": "xOcpIOpG5xyTk5x97qY+vb6GviyPla4JdUhrQt/xOoHnpjzxZLI0Ai0x98CzYdG/FUYVu0kMITKY/YnPc9OGEg==",
       "type": "package",
-      "path": "enginebase/1.0.0",
+      "path": "enginebase/1.0.1",
       "files": [
         ".nupkg.metadata",
-        "enginebase.1.0.0.nupkg.sha512",
+        "enginebase.1.0.1.nupkg.sha512",
         "enginebase.nuspec",
         "lib/net8.0/EngineBase.dll",
         "lib/net8.0/EngineBase.runtimeconfig.json"
@@ -5075,7 +5075,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "EngineBase >= 1.0.0"
+      "EngineBase >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -5099,6 +5099,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\LocalNuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -5125,7 +5126,7 @@
         "dependencies": {
           "EngineBase": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           }
         },
         "imports": [
@@ -5144,7 +5145,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

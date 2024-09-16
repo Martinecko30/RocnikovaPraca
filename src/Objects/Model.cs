@@ -1,4 +1,4 @@
-#region
+#region Imports
 
 using System.Numerics;
 using Assimp;
@@ -138,9 +138,6 @@ public class Model
     private List<Texture> LoadMaterialTextures(Material mat, TextureType type, string typeName)
     {
         List<Texture> textures = new List<Texture>();
-        
-        //Console.WriteLine(mat.GetMaterialTextureCount(type) + " " + type + " " + mat.Name + " " + directory);
-        
 
         if (type == TextureType.Diffuse && mat.GetMaterialTextureCount(type) <= 0 && mat.HasColorDiffuse)
         {

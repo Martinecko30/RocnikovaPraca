@@ -72,10 +72,14 @@ public class MainWindow : GameWindow
             "res\\Shaders\\DepthShader.frag"
             );
         
+        /*
         debugDepthQuad = new Shader(
             "res\\Shaders\\ShadowMappingDepth.vert", 
             "res\\Shaders\\ShadowMappingDepth.frag"
         );
+        */
+        
+        
 
         gameObjects.Add(
             new GameObject("res\\Models\\Minecart.obj",
@@ -89,30 +93,29 @@ public class MainWindow : GameWindow
                 new Vector3(5))
         );
         gameObjects[1].name = "Plane"; // TODO: Remove
-        /*
-        gameObjects.Add(new GameObject(
-            "res\\Models\\cube2.obj",
-            new Vector3(7, 0, 0),
-            new Vector3(0.2f, 0.2f, 0.2f)
-        ));*/
+
+        
+        
+        
         
         // Lights
         
-        lights.Add(new Light(
-            new Vector3(-2f, 4f, 1f), // Position
-            new Vector3(1.0f, 1.0f, 1.0f) // Color {0.0 - 1.0}
-        ));
-        
         /*
         lights.Add(new Light(
-                new Vector3(5, 2.0f, 0), 
-                new Vector3(1.0f, 1.0f,1.0f)) // Color {0.0 - 1.0}
-        );
+            new Vector3(-2f, 4f, -1f), // Position
+            new Vector3(1.0f, 1.0f, 1.0f) // Color {0.0 - 1.0}
+        ));
         */
+        
+        lights.Add(new DirectLight());
+        lights[0].Position = new Vector3(-2f, 4f, -1f); // Position
+        lights[0].Color = new Vector3(1.0f, 1.0f, 1.0f); // Color {0.0 - 1.0}
+        
+        (depthMapFBO, depthMap) = ((DirectLight) lights[0]).CreateShadowMap(new Vector2i(SHADOW_WIDTH, SHADOW_HEIGHT));
+        //CreateShadowMap();
+        
 
-        CreateShadowMap();
-
-        camera = new Camera(new Vector3(0, 0.333f, 1) * 3, Size.X / (float)Size.Y);
+        camera = new Camera(lights[0].Position, Size.X / (float)Size.Y);
         CursorState = CursorState.Grabbed;
         
         GL.Enable(EnableCap.DepthTest);
@@ -144,7 +147,7 @@ public class MainWindow : GameWindow
         // TODO: Rewrite
         debugDepthQuad.Use();
         debugDepthQuad.SetFloat("near_plane", 1.0f);
-        debugDepthQuad.SetFloat("far_plane", 7.5f;
+        debugDepthQuad.SetFloat("far_plane", 7.5f);
         GL.ActiveTexture(TextureUnit.Texture0);
         GL.BindTexture(TextureTarget.Texture2D, depthMap);
         RenderQuad();
@@ -173,6 +176,7 @@ public class MainWindow : GameWindow
         base.SwapBuffers();
     }
     
+    /*
     private void CreateShadowMap() // TODO: Shadow Map
     {
         // Configure Depth Map
@@ -193,9 +197,15 @@ public class MainWindow : GameWindow
         
         GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
         GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
-        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
-        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
         
+        // Set texture parameters for wrapping mode
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToBorder);
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToBorder);
+
+        // Define the border color
+        float[] borderColor = { 1.0f, 1.0f, 1.0f, 1.0f };
+        GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, borderColor);
+
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, depthMapFBO);
         
         // attach depth texture as FBO's depth buffer
@@ -214,11 +224,13 @@ public class MainWindow : GameWindow
         // unbind framebuffer
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
     }
+    */
 
     private void RenderShadowMap()
     {
+        GL.CullFace(CullFaceMode.Front);
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-        float nearPlane = 1.0f, farPlane = 7.5f;
+        float nearPlane = 1.0f, farPlane = 25f;
         Matrix4 lightProjection = Matrix4.CreateOrthographic(20f, 20f, nearPlane, farPlane);
         Matrix4 lightView = Matrix4.LookAt(lights[0].Position, Vector3.Zero, Vector3.UnitY);
         lightSpaceMatrix = lightView * lightProjection;
@@ -230,11 +242,17 @@ public class MainWindow : GameWindow
         GL.Viewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT); // Shadow map TODO: IMPORTANT
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, depthMapFBO);
         
-        GL.Clear(ClearBufferMask.DepthBufferBit);
+        var shadowMapLocation = shader.GetUniformLocation("shadowMap");
+        shader.Use();
+        GL.Uniform1(shadowMapLocation, 2); // TODO: Rework so it isn't hardcoded 2 (0 = diffuse, 1 = specular)
+        
+        
+        GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         GL.ActiveTexture(TextureUnit.Texture2);
         GL.BindTexture(TextureTarget.Texture2D, depthMap);
         RenderScene(depthShader);
         GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+        GL.CullFace(CullFaceMode.Back);
     }
 
     private void RenderScene(Shader sceneShader)

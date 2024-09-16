@@ -19,10 +19,10 @@ uniform mat4 modelInverseTransposed;
 
 void main()
 {
-    vs_out.FragPos = vec3(model * vec4(aPos, 1.0));
+    vs_out.FragPos = vec3(vec4(aPos, 1.0) * model);
     vs_out.Normal = mat3(modelInverseTransposed) * aNormal;
     vs_out.TexCoords = aTexCoords;
-    vs_out.FragPosLightSpace = lightSpaceMatrix * vec4(vs_out.FragPos, 1.0); // TODO: Check if works
+    vs_out.FragPosLightSpace = vec4(aPos, 1.0) * model * lightSpaceMatrix; // TODO: Check if works
 
-    gl_Position = vec4(vs_out.FragPos, 1.0) * model * view * projection;
+    gl_Position = vec4(aPos, 1.0) * model * view * projection;
 }
