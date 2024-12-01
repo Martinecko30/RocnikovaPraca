@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\bytva\\.nuget\\packages\\",
         "outputPath": "F:\\Csharp apps\\RocnikovaPraca\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -49,7 +50,7 @@
           "dependencies": {
             "EngineBase": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.7, )"
             }
           },
           "imports": [

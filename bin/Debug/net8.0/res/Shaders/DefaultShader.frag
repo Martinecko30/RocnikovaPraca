@@ -27,6 +27,8 @@ uniform bool gamma;
 uniform float near_plane;
 uniform float far_plane;
 
+uniform samplerCube skybox;
+
 float LinearizeDepth(float depth)
 {
     float z = depth * 2.0 - 1.0; // Back to NDC 
@@ -41,7 +43,7 @@ float LinearizeDepth(float depth)
 
 vec3 BlinnPhong(vec3 normal, vec3 fragPos, vec3 lightPos, vec3 lightColor, float shadow) {
     // Ambient
-    vec3 ambient = 0.15 * lightColor;
+    vec3 ambient = lightColor * 0.25;
 
     // Diffuse
     vec3 lightDir = normalize(lightPos - fragPos);
@@ -51,7 +53,7 @@ vec3 BlinnPhong(vec3 normal, vec3 fragPos, vec3 lightPos, vec3 lightColor, float
     // Specular
     vec3 viewDir = normalize(viewPos - fragPos);
     vec3 halfwayDir = normalize(lightDir + viewDir);
-    float spec = pow(max(dot(normal, halfwayDir), 0.0), 64.0);
+    float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
     vec3 specular = spec * lightColor;
 
     // Simple attenuation
@@ -104,16 +106,23 @@ void main() {
 
     vec3 lighting = vec3(0.0);
     for(int i = 0; i < MAX_LIGHTS; ++i) { // Assuming the number of active lights is less than MAX_LIGHTS
-        float shadow = ShadowCalculation(fs_in.FragPosLightSpace, normal, fs_in.FragPos, lights[i].position); // Calculate shadow for each light
-        lighting += BlinnPhong(normal, fs_in.FragPos, lights[i].position, lights[i].color, shadow);
+        Light light = lights[i];
+        float shadow = ShadowCalculation(fs_in.FragPosLightSpace, normal, fs_in.FragPos, light.position); // Calculate shadow for each light
+        lighting += BlinnPhong(normal, fs_in.FragPos, light.position, light.color, shadow);
     }
+
+    // Prevent over-exposure by clamping lighting
+    lighting = clamp(lighting, 0.0, 1.0);
 
     // Apply the lighting result to the texture color
     color *= lighting;
 
     // Gamma correction
     if(gamma)
-        color = pow(color, vec3(1.0 / 2.2));
+        color = pow(color, vec3((1.0 / 2.2)));
 
     FragColor = vec4(color, 1.0);
+    //vec3 I = normalize(fs_in.FragPos - viewPos);
+    //vec3 R = reflect(I, normalize(fs_in.Normal));
+    //FragColor = vec4(texture(skybox, R).rgb, 1.0);
 }

@@ -1,21 +1,6 @@
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\Minecart.fbx
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\Minecart.mtl
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\Minecart.obj
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\DefaultShader.vert
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\bunny.obj
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\cube.obj
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\cube.mtl
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\cube2.mtl
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\cube2.obj
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\ImphenziaPalette01-256-Gradient.png
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\Low Poly Fruit v1.fbx
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\plane.mtl
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\plane.obj
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Models\wood.png
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\DepthShader.frag
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\DepthShader.vert
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\ShadowMappingDepth.vert
-F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\ShadowMappingDepth.frag
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\RocnikovaPraca.exe
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\RocnikovaPraca.deps.json
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\RocnikovaPraca.runtimeconfig.json
@@ -56,3 +41,43 @@ F:\Csharp apps\RocnikovaPraca\obj\Debug\net8.0\RocnikovaPraca.pdb
 F:\Csharp apps\RocnikovaPraca\obj\Debug\net8.0\RocnikovaPraca.genruntimeconfig.cache
 F:\Csharp apps\RocnikovaPraca\obj\Debug\net8.0\ref\RocnikovaPraca.dll
 F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\DefaultShader.frag
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\back.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\bottom.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\front.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\left.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\right.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Skybox\top.jpg
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\bunny.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\cube.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\cube.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\cube2.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\cube2.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\ImphenziaPalette01-256-Gradient.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Low Poly Fruit v1.fbx
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Minecart.fbx
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Minecart.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Minecart.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\plane.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\plane.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\scena.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\scena.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\wood.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Clifftile Concave.dae
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Colorscheme Grey.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Colorscheme Red.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Colorscheme Yellow.png
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Grey.mat
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Red.mat
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Cliffs\Yellow.mat
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Kaykit\tree_forest.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Kaykit\tree_forest.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Bookcase\materials.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Bookcase\model.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Bookcase\materials.mtl.bak
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\SkyboxShader.vert
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Shaders\SkyboxShader.frag
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\ReflectiveSphere.mtl
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\ReflectiveSphere.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Map\map.fbx
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Map\map.obj
+F:\Csharp apps\RocnikovaPraca\bin\Debug\net8.0\res\Assets\Models\Map\map.mtl

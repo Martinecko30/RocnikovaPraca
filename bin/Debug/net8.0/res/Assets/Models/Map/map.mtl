@@ -1,0 +1,22 @@
+# Blender 4.2.2 LTS MTL File: 'None'
+# www.blender.org
+
+newmtl Material.001
+Ns 39.999996
+Ka 0.100000 0.100000 0.100000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/bytva/Downloads/stone-slab-texture-pattern-with-shallow-depth-for-background-pebble-texture-stone-pebble-background-pebble-texture-wallpaper-3d-illustration-free-photo.jpg
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/bytva/Downloads/walldzcx28-aaa97ba0-6885-4d0d-956e-8caa1ecfdaf9.png

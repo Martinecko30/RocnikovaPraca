@@ -39,7 +39,7 @@
           }
         }
       },
-      "EngineBase/1.0.1": {
+      "EngineBase/1.0.7": {
         "type": "package",
         "dependencies": {
           "AssimpNet": "4.1.0",
@@ -1580,13 +1580,13 @@
         "runtimes/win-x86/native/assimp.dll"
       ]
     },
-    "EngineBase/1.0.1": {
-      "sha512": "xOcpIOpG5xyTk5x97qY+vb6GviyPla4JdUhrQt/xOoHnpjzxZLI0Ai0x98CzYdG/FUYVu0kMITKY/YnPc9OGEg==",
+    "EngineBase/1.0.7": {
+      "sha512": "J+0AtwHZ/CUFhs6zmzZPbynbSuFisGEyuWEMj3dI5Xv3KCWaENd+G/Cs6jq7wTgxNH6/BRFqIns4cpAcKafvKQ==",
       "type": "package",
-      "path": "enginebase/1.0.1",
+      "path": "enginebase/1.0.7",
       "files": [
         ".nupkg.metadata",
-        "enginebase.1.0.1.nupkg.sha512",
+        "enginebase.1.0.7.nupkg.sha512",
         "enginebase.nuspec",
         "lib/net8.0/EngineBase.dll",
         "lib/net8.0/EngineBase.runtimeconfig.json"
@@ -5075,7 +5075,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "EngineBase >= 1.0.1"
+      "EngineBase >= 1.0.7"
     ]
   },
   "packageFolders": {
@@ -5090,6 +5090,7 @@
       "packagesPath": "C:\\Users\\bytva\\.nuget\\packages\\",
       "outputPath": "F:\\Csharp apps\\RocnikovaPraca\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -5126,7 +5127,7 @@
         "dependencies": {
           "EngineBase": {
             "target": "Package",
-            "version": "[1.0.1, )"
+            "version": "[1.0.7, )"
           }
         },
         "imports": [

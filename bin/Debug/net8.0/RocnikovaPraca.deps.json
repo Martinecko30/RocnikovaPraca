@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "RocnikovaPraca/1.0.0": {
         "dependencies": {
-          "EngineBase": "1.0.1"
+          "EngineBase": "1.0.7"
         },
         "runtime": {
           "RocnikovaPraca.dll": {}
@@ -47,7 +47,7 @@
           }
         }
       },
-      "EngineBase/1.0.1": {
+      "EngineBase/1.0.7": {
         "dependencies": {
           "AssimpNet": "4.1.0",
           "OpenTK": "4.8.2",
@@ -55,8 +55,8 @@
         },
         "runtime": {
           "lib/net8.0/EngineBase.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
           }
         }
       },
@@ -894,12 +894,12 @@
       "path": "assimpnet/4.1.0",
       "hashPath": "assimpnet.4.1.0.nupkg.sha512"
     },
-    "EngineBase/1.0.1": {
+    "EngineBase/1.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xOcpIOpG5xyTk5x97qY+vb6GviyPla4JdUhrQt/xOoHnpjzxZLI0Ai0x98CzYdG/FUYVu0kMITKY/YnPc9OGEg==",
-      "path": "enginebase/1.0.1",
-      "hashPath": "enginebase.1.0.1.nupkg.sha512"
+      "sha512": "sha512-J+0AtwHZ/CUFhs6zmzZPbynbSuFisGEyuWEMj3dI5Xv3KCWaENd+G/Cs6jq7wTgxNH6/BRFqIns4cpAcKafvKQ==",
+      "path": "enginebase/1.0.7",
+      "hashPath": "enginebase.1.0.7.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
