@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net9.0": {
       "AssimpNet/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -18,7 +18,7 @@
           }
         },
         "build": {
-          "build/_._": {}
+          "build/AssimpNet.targets": {}
         },
         "runtimeTargets": {
           "runtimes/linux-x64/native/libassimp.so": {
@@ -36,24 +36,6 @@
           "runtimes/win-x86/native/assimp.dll": {
             "assetType": "native",
             "rid": "win-x86"
-          }
-        }
-      },
-      "EngineBase/1.0.7": {
-        "type": "package",
-        "dependencies": {
-          "AssimpNet": "4.1.0",
-          "OpenTK": "4.8.2",
-          "StbImageSharp": "2.27.14"
-        },
-        "compile": {
-          "lib/net8.0/EngineBase.dll": {
-            "related": ".runtimeconfig.json"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/EngineBase.dll": {
-            "related": ".runtimeconfig.json"
           }
         }
       },
@@ -137,25 +119,25 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "OpenTK/4.8.2": {
+      "OpenTK/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Audio.OpenAL": "4.8.2",
-          "OpenTK.Compute": "4.8.2",
-          "OpenTK.Core": "4.8.2",
-          "OpenTK.Graphics": "4.8.2",
-          "OpenTK.Input": "4.8.2",
-          "OpenTK.Mathematics": "4.8.2",
-          "OpenTK.Windowing.Common": "4.8.2",
-          "OpenTK.Windowing.Desktop": "4.8.2",
-          "OpenTK.Windowing.GraphicsLibraryFramework": "4.8.2"
+          "OpenTK.Audio.OpenAL": "4.9.3",
+          "OpenTK.Compute": "4.9.3",
+          "OpenTK.Core": "4.9.3",
+          "OpenTK.Graphics": "4.9.3",
+          "OpenTK.Input": "4.9.3",
+          "OpenTK.Mathematics": "4.9.3",
+          "OpenTK.Windowing.Common": "4.9.3",
+          "OpenTK.Windowing.Desktop": "4.9.3",
+          "OpenTK.Windowing.GraphicsLibraryFramework": "4.9.3"
         }
       },
-      "OpenTK.Audio.OpenAL/4.8.2": {
+      "OpenTK.Audio.OpenAL/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Core": "[4.8.2, 4.9.0)",
-          "OpenTK.Mathematics": "[4.8.2, 4.9.0)"
+          "OpenTK.Core": "[4.9.3, 4.10.0)",
+          "OpenTK.Mathematics": "[4.9.3, 4.10.0)"
         },
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Audio.OpenAL.dll": {
@@ -168,7 +150,7 @@
           }
         }
       },
-      "OpenTK.Compute/4.8.2": {
+      "OpenTK.Compute/4.9.3": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Compute.dll": {
@@ -181,7 +163,7 @@
           }
         }
       },
-      "OpenTK.Core/4.8.2": {
+      "OpenTK.Core/4.9.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/OpenTK.Core.dll": {
@@ -194,11 +176,11 @@
           }
         }
       },
-      "OpenTK.Graphics/4.8.2": {
+      "OpenTK.Graphics/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Core": "[4.8.2, 4.9.0)",
-          "OpenTK.Mathematics": "[4.8.2, 4.9.0)"
+          "OpenTK.Core": "[4.9.3, 4.10.0)",
+          "OpenTK.Mathematics": "[4.9.3, 4.10.0)"
         },
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Graphics.dll": {
@@ -211,7 +193,7 @@
           }
         }
       },
-      "OpenTK.Input/4.8.2": {
+      "OpenTK.Input/4.9.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/OpenTK.Input.dll": {
@@ -224,10 +206,10 @@
           }
         }
       },
-      "OpenTK.Mathematics/4.8.2": {
+      "OpenTK.Mathematics/4.9.3": {
         "type": "package",
         "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         },
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Mathematics.dll": {
@@ -275,11 +257,11 @@
           }
         }
       },
-      "OpenTK.Windowing.Common/4.8.2": {
+      "OpenTK.Windowing.Common/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Core": "[4.8.2, 4.9.0)",
-          "OpenTK.Mathematics": "[4.8.2, 4.9.0)"
+          "OpenTK.Core": "[4.9.3, 4.10.0)",
+          "OpenTK.Mathematics": "[4.9.3, 4.10.0)"
         },
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Windowing.Common.dll": {
@@ -292,13 +274,13 @@
           }
         }
       },
-      "OpenTK.Windowing.Desktop/4.8.2": {
+      "OpenTK.Windowing.Desktop/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Core": "[4.8.2, 4.9.0)",
-          "OpenTK.Mathematics": "[4.8.2, 4.9.0)",
-          "OpenTK.Windowing.Common": "[4.8.2, 4.9.0)",
-          "OpenTK.Windowing.GraphicsLibraryFramework": "[4.8.2, 4.9.0)"
+          "OpenTK.Core": "[4.9.3, 4.10.0)",
+          "OpenTK.Mathematics": "[4.9.3, 4.10.0)",
+          "OpenTK.Windowing.Common": "[4.9.3, 4.10.0)",
+          "OpenTK.Windowing.GraphicsLibraryFramework": "[4.9.3, 4.10.0)"
         },
         "compile": {
           "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.dll": {
@@ -311,10 +293,10 @@
           }
         }
       },
-      "OpenTK.Windowing.GraphicsLibraryFramework/4.8.2": {
+      "OpenTK.Windowing.GraphicsLibraryFramework/4.9.3": {
         "type": "package",
         "dependencies": {
-          "OpenTK.Core": "[4.8.2, 4.9.0)",
+          "OpenTK.Core": "[4.9.3, 4.10.0)",
           "OpenTK.redist.glfw": "3.3.8.39"
         },
         "compile": {
@@ -499,7 +481,7 @@
           }
         }
       },
-      "StbImageSharp/2.27.14": {
+      "StbImageSharp/2.30.15": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/StbImageSharp.dll": {}
@@ -1082,17 +1064,20 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Runtime.Extensions/4.3.0": {
@@ -1580,18 +1565,6 @@
         "runtimes/win-x86/native/assimp.dll"
       ]
     },
-    "EngineBase/1.0.7": {
-      "sha512": "J+0AtwHZ/CUFhs6zmzZPbynbSuFisGEyuWEMj3dI5Xv3KCWaENd+G/Cs6jq7wTgxNH6/BRFqIns4cpAcKafvKQ==",
-      "type": "package",
-      "path": "enginebase/1.0.7",
-      "files": [
-        ".nupkg.metadata",
-        "enginebase.1.0.7.nupkg.sha512",
-        "enginebase.nuspec",
-        "lib/net8.0/EngineBase.dll",
-        "lib/net8.0/EngineBase.runtimeconfig.json"
-      ]
-    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -1673,104 +1646,116 @@
         "netstandard.library.nuspec"
       ]
     },
-    "OpenTK/4.8.2": {
-      "sha512": "s2bqkD0glaX5Zbrv0Nj91zcefGrwq+nAp7SnXw14Z22Wj1nVE9CWkEyKX8tha1EdxqSRwKdP6gi+xzZXs4nK4Q==",
+    "OpenTK/4.9.3": {
+      "sha512": "KdqV6GQHvVqd9/NYHImIgByIQtULb9wa32R/f0D8UsGmHoXGCYk3go14jSVSeAGDloW/CTvOWdwNXcIBP1Gqlw==",
       "type": "package",
-      "path": "opentk/4.8.2",
+      "path": "opentk/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "opentk.4.8.2.nupkg.sha512",
+        "opentk.4.9.3.nupkg.sha512",
         "opentk.nuspec"
       ]
     },
-    "OpenTK.Audio.OpenAL/4.8.2": {
-      "sha512": "/Xe0luzJiVOvJ8YXGMY/YLZsGsb0/7Ms09isb/WxkKWjLyuiB2OIflZ49VHmumZpQDz2PUgwqOt2fucviLOmuw==",
+    "OpenTK.Audio.OpenAL/4.9.3": {
+      "sha512": "2YcW5A9QRy0nxtBGuBqgihNBK41MCbP4ojIerlOXzNnZY8OBH3RyTMR3djafblg0skvFmR93K9tBI5xxsgXVlA==",
       "type": "package",
-      "path": "opentk.audio.openal/4.8.2",
+      "path": "opentk.audio.openal/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Audio.OpenAL.dll",
         "lib/netcoreapp3.1/OpenTK.Audio.OpenAL.pdb",
         "lib/netcoreapp3.1/OpenTK.Audio.OpenAL.xml",
-        "opentk.audio.openal.4.8.2.nupkg.sha512",
+        "opentk.audio.openal.4.9.3.nupkg.sha512",
         "opentk.audio.openal.nuspec"
       ]
     },
-    "OpenTK.Compute/4.8.2": {
-      "sha512": "n3gBbXOTCkvkNjSOKkVpoxfF/QXzo+cPWKtzObm4f/J+5mOE8odHKXgPn1765Tnu2Ou2ImvdXi/bUFQt/V5Qiw==",
+    "OpenTK.Compute/4.9.3": {
+      "sha512": "He71Vgak/wliw0zOe+O5zbCKCKNE03LgxowIX6EXBkY3OApVxpw69lgCLRsr/FVWGF2l9jA0o5EiDA7FYVrz1A==",
       "type": "package",
-      "path": "opentk.compute/4.8.2",
+      "path": "opentk.compute/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Compute.dll",
         "lib/netcoreapp3.1/OpenTK.Compute.pdb",
         "lib/netcoreapp3.1/OpenTK.Compute.xml",
-        "opentk.compute.4.8.2.nupkg.sha512",
+        "opentk.compute.4.9.3.nupkg.sha512",
         "opentk.compute.nuspec"
       ]
     },
-    "OpenTK.Core/4.8.2": {
-      "sha512": "BS5IM1W/BK9BtmsEnYT/RGv+KDK0Zrnw8nDDGvK45ywBjMLv+qBRB+Vkx5sQ4Jjy7btLxxqrPHmT3wt5N/PcxA==",
+    "OpenTK.Core/4.9.3": {
+      "sha512": "gNUBQZAoTBE3A28OMnr3xHrTXONqzvqhJ1UWGa+1iaAHkQfCU8Tw2mboNtgewBiJPGNO0hFm9EPs/a9tpAxYMw==",
       "type": "package",
-      "path": "opentk.core/4.8.2",
+      "path": "opentk.core/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netstandard2.1/OpenTK.Core.dll",
         "lib/netstandard2.1/OpenTK.Core.pdb",
         "lib/netstandard2.1/OpenTK.Core.xml",
-        "opentk.core.4.8.2.nupkg.sha512",
+        "opentk.core.4.9.3.nupkg.sha512",
         "opentk.core.nuspec"
       ]
     },
-    "OpenTK.Graphics/4.8.2": {
-      "sha512": "qpbyWqdO+yEFVFinKwEWKgi1Jgd0fVSgHbB7d5I8ozI9RL/SKZSNmJDxLjTMSQImJtFixmATcLEWwvEceJ/JsQ==",
+    "OpenTK.Graphics/4.9.3": {
+      "sha512": "gVcXN7/w5UHopNCAFvcyN8N41j45FDuZ8GbKEiI2KCWfJ2DTiC+kROvZ9Q/OtQZkAiePmeM+LV8F0HRAGMoKPw==",
       "type": "package",
-      "path": "opentk.graphics/4.8.2",
+      "path": "opentk.graphics/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Graphics.dll",
         "lib/netcoreapp3.1/OpenTK.Graphics.pdb",
         "lib/netcoreapp3.1/OpenTK.Graphics.xml",
         "lib/netstandard2.1/OpenTK.Graphics.dll",
         "lib/netstandard2.1/OpenTK.Graphics.pdb",
         "lib/netstandard2.1/OpenTK.Graphics.xml",
-        "opentk.graphics.4.8.2.nupkg.sha512",
+        "opentk.graphics.4.9.3.nupkg.sha512",
         "opentk.graphics.nuspec"
       ]
     },
-    "OpenTK.Input/4.8.2": {
-      "sha512": "BGs7STF0/o4kNJ1pWXko4I3IwEhieOHVgJFzXzo5m1tI4zMKjBqmzuc4GGfCu+Gtiv33vRYx3dt9f659nr5J8w==",
+    "OpenTK.Input/4.9.3": {
+      "sha512": "SwxHZvjtEQfM9QFRncNanXbWrAgDwj3s/AGKzhM0wX5Qu0BDMLRQXxqNCtNRNHHO/QgPK4NqZAvyAG96DuVqGw==",
       "type": "package",
-      "path": "opentk.input/4.8.2",
+      "path": "opentk.input/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netstandard2.0/OpenTK.Input.dll",
         "lib/netstandard2.0/OpenTK.Input.pdb",
         "lib/netstandard2.0/OpenTK.Input.xml",
-        "opentk.input.4.8.2.nupkg.sha512",
+        "opentk.input.4.9.3.nupkg.sha512",
         "opentk.input.nuspec"
       ]
     },
-    "OpenTK.Mathematics/4.8.2": {
-      "sha512": "A8D3eBWi/LKndvTQQ9o9uwyQJUjGORfWCn/gOvX0jIwmTctkLGnOdw5kw4JbRnzfrhZoSIaqZ7MYWWhIkasORw==",
+    "OpenTK.Mathematics/4.9.3": {
+      "sha512": "nYsHqqVijXzIasdI+hKn+FFpvvcNw/nONWRWGEqt8BaNCh9RHM2bY5Gfpe9y1jw9pJW/t4GgzGfp1woxcQtwBQ==",
       "type": "package",
-      "path": "opentk.mathematics/4.8.2",
+      "path": "opentk.mathematics/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Mathematics.dll",
         "lib/netcoreapp3.1/OpenTK.Mathematics.pdb",
         "lib/netcoreapp3.1/OpenTK.Mathematics.xml",
         "lib/netstandard2.1/OpenTK.Mathematics.dll",
         "lib/netstandard2.1/OpenTK.Mathematics.pdb",
         "lib/netstandard2.1/OpenTK.Mathematics.xml",
-        "opentk.mathematics.4.8.2.nupkg.sha512",
+        "opentk.mathematics.4.9.3.nupkg.sha512",
         "opentk.mathematics.nuspec"
       ]
     },
@@ -1794,48 +1779,54 @@
         "runtimes/win-x86/native/glfw3.dll"
       ]
     },
-    "OpenTK.Windowing.Common/4.8.2": {
-      "sha512": "cE7w2AboX/cxtOl7UWa1rTnH4uUoCEg9rtppN6d1/8GOfKUW8LjO6bjEePrRk9LzRZL+5dky3nfw6ZONn5ItyA==",
+    "OpenTK.Windowing.Common/4.9.3": {
+      "sha512": "A1AfUP7uxCIj/UFfYo3nBdL6uf4A9c1kM52WOUwICC3ck7+VC7bYvm7B5Qx912Ej8oAg0IZnHWL34lySJGgt/Q==",
       "type": "package",
-      "path": "opentk.windowing.common/4.8.2",
+      "path": "opentk.windowing.common/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Windowing.Common.dll",
         "lib/netcoreapp3.1/OpenTK.Windowing.Common.pdb",
         "lib/netcoreapp3.1/OpenTK.Windowing.Common.xml",
         "lib/netstandard2.1/OpenTK.Windowing.Common.dll",
         "lib/netstandard2.1/OpenTK.Windowing.Common.pdb",
         "lib/netstandard2.1/OpenTK.Windowing.Common.xml",
-        "opentk.windowing.common.4.8.2.nupkg.sha512",
+        "opentk.windowing.common.4.9.3.nupkg.sha512",
         "opentk.windowing.common.nuspec"
       ]
     },
-    "OpenTK.Windowing.Desktop/4.8.2": {
-      "sha512": "SlEuiAllLgE03/jJbloCOD1iNtBpnhMuVb510ccA/ILp//mzXHeRKsz7zFJ1ct7yIxe5U2WExXx52Tan++p11Q==",
+    "OpenTK.Windowing.Desktop/4.9.3": {
+      "sha512": "/dYHSesaCUfknOeru7NmwXO+vzW9sNwsjK1w6pZ1NvHNf4LbXP+31QByu1YFw8H99CBhQT4PtCXH7j1FPUUaQQ==",
       "type": "package",
-      "path": "opentk.windowing.desktop/4.8.2",
+      "path": "opentk.windowing.desktop/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.dll",
         "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.pdb",
         "lib/netcoreapp3.1/OpenTK.Windowing.Desktop.xml",
-        "opentk.windowing.desktop.4.8.2.nupkg.sha512",
+        "opentk.windowing.desktop.4.9.3.nupkg.sha512",
         "opentk.windowing.desktop.nuspec"
       ]
     },
-    "OpenTK.Windowing.GraphicsLibraryFramework/4.8.2": {
-      "sha512": "o50PgKL8G0Pqs7Lo7hu1ru+5X5l03aht5jaeik7McXFgVaBJzMLhMhZkiferx4bbcC9Rq597BOknDwqE/bsLOw==",
+    "OpenTK.Windowing.GraphicsLibraryFramework/4.9.3": {
+      "sha512": "R25vUotlUhf/bKh+SAtrIjbfMihR9XLUhhAmMNkTd9oKFqyFl2SmyNNs2J04CGOI/H3CzFnP1er6ur0h98hDxw==",
       "type": "package",
-      "path": "opentk.windowing.graphicslibraryframework/4.8.2",
+      "path": "opentk.windowing.graphicslibraryframework/4.9.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "docs/README.md",
+        "images/opentk-blue-hexagon.png",
         "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.dll",
         "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.pdb",
         "lib/netcoreapp3.1/OpenTK.Windowing.GraphicsLibraryFramework.xml",
-        "opentk.windowing.graphicslibraryframework.4.8.2.nupkg.sha512",
+        "opentk.windowing.graphicslibraryframework.4.9.3.nupkg.sha512",
         "opentk.windowing.graphicslibraryframework.nuspec"
       ]
     },
@@ -2063,16 +2054,16 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
-    "StbImageSharp/2.27.14": {
-      "sha512": "4C38oL8igoocaywMr4+WDYoXwnVma3gm26heCAVgzWqO91MMPuhgqTlTT7vVpGDMo4/c0h2/zqQuAS6QxJKgmA==",
+    "StbImageSharp/2.30.15": {
+      "sha512": "7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
       "type": "package",
-      "path": "stbimagesharp/2.27.14",
+      "path": "stbimagesharp/2.30.15",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net471/StbImageSharp.dll",
         "lib/netstandard2.0/StbImageSharp.dll",
-        "stbimagesharp.2.27.14.nupkg.sha512",
+        "stbimagesharp.2.30.15.nupkg.sha512",
         "stbimagesharp.nuspec"
       ]
     },
@@ -3920,36 +3911,29 @@
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
-      "sha512": "ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net45/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net45/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/net461/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.dll",
-        "ref/netstandard2.1/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Runtime.Extensions/4.3.0": {
@@ -5074,8 +5058,10 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
-      "EngineBase >= 1.0.7"
+    "net9.0": [
+      "AssimpNet >= 4.1.0",
+      "OpenTK >= 4.9.3",
+      "StbImageSharp >= 2.30.15"
     ]
   },
   "packageFolders": {
@@ -5090,23 +5076,21 @@
       "packagesPath": "C:\\Users\\bytva\\.nuget\\packages\\",
       "outputPath": "F:\\Csharp apps\\RocnikovaPraca\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net9.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Users\\bytva\\AppData\\Roaming\\NuGet\\LocalNuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -5118,16 +5102,25 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "dependencies": {
-          "EngineBase": {
+          "AssimpNet": {
             "target": "Package",
-            "version": "[1.0.7, )"
+            "version": "[4.1.0, )"
+          },
+          "OpenTK": {
+            "target": "Package",
+            "version": "[4.9.3, )"
+          },
+          "StbImageSharp": {
+            "target": "Package",
+            "version": "[2.30.15, )"
           }
         },
         "imports": [
@@ -5146,8 +5139,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\bytva\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Net.Http' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
+      "libraryId": "System.Net.Http",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Text.RegularExpressions' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
+      "libraryId": "System.Text.RegularExpressions",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
