@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RocnikovaPraca")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5eaff6751229122a3458db0cd524e1860fe597e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+251e6aee29b8597da4673d89f1b938840ccbc97d")]
 [assembly: System.Reflection.AssemblyProductAttribute("RocnikovaPraca")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RocnikovaPraca")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
